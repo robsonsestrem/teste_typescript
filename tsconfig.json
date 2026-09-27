@@ -8,16 +8,15 @@
     "rootDir": "src",
     "strict": true,
     "strictPropertyInitialization": false,
-    "baseUrl": "./",
     "paths": {
       "@config/*": [
-        "src/config/*"
+        "./src/config/*"
       ],
       "@modules/*": [
-        "src/modules/*"
+        "./src/modules/*"
       ],
       "@shared/*": [
-        "src/shared/*"
+        "./src/shared/*"
       ]
     },
     "typeRoots": [
