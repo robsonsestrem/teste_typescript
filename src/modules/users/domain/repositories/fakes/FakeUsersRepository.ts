@@ -4,6 +4,12 @@ import { IUsersRepository } from '@modules/users/domain/repositories/IUsersRepos
 import User from '@modules/users/infra/typeorm/entities/User';
 import { IPaginateUser } from '../../models/IPaginateUser';
 
+type SearchParams = {
+  page: number;
+  skip: number;
+  take: number;
+};
+
 class FakeUsersRepository implements IUsersRepository {
   private users: User[] = [];
 
@@ -28,40 +34,30 @@ class FakeUsersRepository implements IUsersRepository {
     return user;
   }
 
-  public async remove(user: User): Promise<void> {}
-
-  public async findAll(): Promise<User[]> {
-    return this.users;
+  public async remove(user: User): Promise<void> {
+    this.users = this.users.filter(u => u.id !== user.id);
   }
 
-  public async findAllPaginate(): Promise<IPaginateUser> {
-    const usersPaginate = {
-      from: 1,
-      to: 1,
-      per_page: 1,
-      total: 1,
-      current_page: 1,
-      prev_page: null,
-      next_page: null,
-      data: this.users,
+  public async findAll({ page, skip, take }: SearchParams): Promise<IPaginateUser> {
+    const data = this.users.slice(skip, skip + take);
+    return {
+      per_page: take,
+      total: this.users.length,
+      current_page: page,
+      data,
     };
-
-    return usersPaginate;
   }
 
-  public async findByName(name: string): Promise<User | undefined> {
-    const user = this.users.find(user => user.name === name);
-    return user;
+  public async findByName(name: string): Promise<User | null> {
+    return this.users.find(user => user.name === name) ?? null;
   }
 
-  public async findById(id: string): Promise<User | undefined> {
-    const user = this.users.find(user => user.id === id);
-    return user;
+  public async findById(id: string): Promise<User | null> {
+    return this.users.find(user => user.id === id) ?? null;
   }
 
-  public async findByEmail(email: string): Promise<User | undefined> {
-    const user = this.users.find(user => user.email === email);
-    return user;
+  public async findByEmail(email: string): Promise<User | null> {
+    return this.users.find(user => user.email === email) ?? null;
   }
 }
 
