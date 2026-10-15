@@ -40,7 +40,7 @@ usersRouter.post(
 usersRouter.patch(
   '/avatar',
   isAuthenticated,
-  upload.single('avatar'),
+  upload.single('avatar') as any,
   usersAvatarController.update,
 );
 

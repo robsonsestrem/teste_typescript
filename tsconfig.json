@@ -10,20 +10,11 @@
     "strictPropertyInitialization": false,
     "baseUrl": "./",
     "paths": {
-      "@config/*": [
-        "src/config/*"
-      ],
-      "@modules/*": [
-        "src/modules/*"
-      ],
-      "@shared/*": [
-        "src/shared/*"
-      ]
+      "@config/*": ["src/config/*"],
+      "@modules/*": ["src/modules/*"],
+      "@shared/*": ["src/shared/*"]
     },
-    "typeRoots": [
-      "./src/@types",
-      "./node_modules/@types"
-    ],
+    "typeRoots": ["./src/@types", "./node_modules/@types"],
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,

@@ -8,7 +8,7 @@ import { IOrder } from '../domain/models/IOrder';
 class ShowOrderService {
   constructor(
     @inject('OrdersRepository')
-    private ordersRepository: IOrdersRepository,
+    private ordersRepository: IOrdersRepository
   ) {}
 
   public async execute({ id }: IShowOrder): Promise<IOrder> {

@@ -11,7 +11,7 @@ interface SearchParams {
 class ListProductService {
   constructor(
     @inject('ProductsRepository')
-    private productsRepository: IProductsRepository,
+    private productsRepository: IProductsRepository
   ) {}
 
   public async execute({

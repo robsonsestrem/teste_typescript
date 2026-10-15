@@ -36,7 +36,11 @@ class FakeCustomersRepository implements ICustomersRepository {
     this.customers = this.customers.filter(c => c.id !== customer.id);
   }
 
-  public async findAll({ page, skip, take }: SearchParams): Promise<ICustomerPaginate> {
+  public async findAll({
+    page,
+    skip,
+    take,
+  }: SearchParams): Promise<ICustomerPaginate> {
     const data = this.customers.slice(skip, skip + take);
     return {
       per_page: take,

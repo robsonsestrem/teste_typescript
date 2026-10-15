@@ -11,7 +11,7 @@ interface SearchParams {
 class ListOrderService {
   constructor(
     @inject('OrdersRepository')
-    private ordersRepository: IOrdersRepository,
+    private ordersRepository: IOrdersRepository
   ) {}
 
   public async execute({ page, limit }: SearchParams): Promise<IOrderPaginate> {

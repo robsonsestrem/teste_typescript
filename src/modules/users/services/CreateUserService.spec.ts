@@ -37,7 +37,7 @@ describe('CreateUser', () => {
         name: 'Jorge Aluizio',
         email: 'teste@teste.com',
         password: '123456',
-      }),
+      })
     ).rejects.toBeInstanceOf(AppError);
   });
 });

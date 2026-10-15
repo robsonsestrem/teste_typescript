@@ -9,7 +9,7 @@ export class AddOrderFieldtoOrders1619889809717 implements MigrationInterface {
         type: 'int',
         isGenerated: true,
         generationStrategy: 'increment',
-      }),
+      })
     );
   }
 

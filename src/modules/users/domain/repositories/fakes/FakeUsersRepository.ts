@@ -27,7 +27,9 @@ class FakeUsersRepository implements IUsersRepository {
   }
 
   public async save(user: User): Promise<User> {
-    const findIndex = this.users.findIndex(findUser => findUser.id === user.id);
+    const findIndex = this.users.findIndex(
+      (findUser) => findUser.id === user.id
+    );
 
     this.users[findIndex] = user;
 
@@ -35,10 +37,14 @@ class FakeUsersRepository implements IUsersRepository {
   }
 
   public async remove(user: User): Promise<void> {
-    this.users = this.users.filter(u => u.id !== user.id);
+    this.users = this.users.filter((u) => u.id !== user.id);
   }
 
-  public async findAll({ page, skip, take }: SearchParams): Promise<IPaginateUser> {
+  public async findAll({
+    page,
+    skip,
+    take,
+  }: SearchParams): Promise<IPaginateUser> {
     const data = this.users.slice(skip, skip + take);
     return {
       per_page: take,
@@ -49,15 +55,15 @@ class FakeUsersRepository implements IUsersRepository {
   }
 
   public async findByName(name: string): Promise<User | null> {
-    return this.users.find(user => user.name === name) ?? null;
+    return this.users.find((user) => user.name === name) ?? null;
   }
 
   public async findById(id: string): Promise<User | null> {
-    return this.users.find(user => user.id === id) ?? null;
+    return this.users.find((user) => user.id === id) ?? null;
   }
 
   public async findByEmail(email: string): Promise<User | null> {
-    return this.users.find(user => user.email === email) ?? null;
+    return this.users.find((user) => user.email === email) ?? null;
   }
 }
 

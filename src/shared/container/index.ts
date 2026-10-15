@@ -15,25 +15,25 @@ import '@modules/users/providers';
 
 container.registerSingleton<ICustomersRepository>(
   'CustomersRepository',
-  CustomersRepository,
+  CustomersRepository
 );
 
 container.registerSingleton<IProductsRepository>(
   'ProductsRepository',
-  ProductsRepository,
+  ProductsRepository
 );
 
 container.registerSingleton<IOrdersRepository>(
   'OrdersRepository',
-  OrdersRepository,
+  OrdersRepository
 );
 
 container.registerSingleton<IUsersRepository>(
   'UsersRepository',
-  UsersRepository,
+  UsersRepository
 );
 
 container.registerSingleton<IUserTokensRepository>(
   'UserTokensRepository',
-  UserTokensRepository,
+  UserTokensRepository
 );

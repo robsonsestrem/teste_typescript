@@ -32,7 +32,7 @@ export class CreateCustomers1608058533060 implements MigrationInterface {
             default: 'now()',
           },
         ],
-      }),
+      })
     );
   }
 
