@@ -17,7 +17,7 @@ ordersRouter.get(
       id: Joi.string().uuid().required(),
     },
   }),
-  ordersController.show,
+  ordersController.show
 );
 
 ordersRouter.post(
@@ -28,7 +28,7 @@ ordersRouter.post(
       products: Joi.required(),
     },
   }),
-  ordersController.create,
+  ordersController.create
 );
 
 export default ordersRouter;

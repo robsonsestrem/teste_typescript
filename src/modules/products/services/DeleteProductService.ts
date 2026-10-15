@@ -8,7 +8,7 @@ import { IProductsRepository } from '../domain/repositories/IProductsRepository'
 class DeleteProductService {
   constructor(
     @inject('ProductsRepository')
-    private productsRepository: IProductsRepository,
+    private productsRepository: IProductsRepository
   ) {}
 
   public async execute({ id }: IDeleteProduct): Promise<void> {

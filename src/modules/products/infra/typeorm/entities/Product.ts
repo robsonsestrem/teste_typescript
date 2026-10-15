@@ -13,7 +13,7 @@ class Product {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @OneToMany(() => OrdersProducts, order_products => order_products.product)
+  @OneToMany(() => OrdersProducts, (order_products) => order_products.product)
   order_products: OrdersProducts[];
 
   @Column()

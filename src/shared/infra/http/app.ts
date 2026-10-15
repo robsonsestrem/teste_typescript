@@ -36,7 +36,7 @@ app.use(
       status: 'error',
       message: 'Internal server error',
     });
-  },
+  }
 );
 
 export { app };

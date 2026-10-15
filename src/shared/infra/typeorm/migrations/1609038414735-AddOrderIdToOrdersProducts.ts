@@ -6,7 +6,8 @@ import {
 } from 'typeorm';
 
 export class AddOrderIdToOrdersProducts1609038414735
-  implements MigrationInterface {
+  implements MigrationInterface
+{
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.addColumn(
       'orders_products',
@@ -14,7 +15,7 @@ export class AddOrderIdToOrdersProducts1609038414735
         name: 'order_id',
         type: 'uuid',
         isNullable: true,
-      }),
+      })
     );
 
     await queryRunner.createForeignKey(
@@ -25,7 +26,7 @@ export class AddOrderIdToOrdersProducts1609038414735
         referencedTableName: 'orders',
         referencedColumnNames: ['id'],
         onDelete: 'SET NULL',
-      }),
+      })
     );
   }
 

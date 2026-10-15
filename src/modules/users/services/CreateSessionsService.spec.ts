@@ -14,7 +14,7 @@ describe('CreateSession', () => {
     fakeHashProvider = new FakeHashProvider();
     createSession = new CreateSessionsService(
       fakeUsersRepository,
-      fakeHashProvider,
+      fakeHashProvider
     );
   });
 
@@ -39,7 +39,7 @@ describe('CreateSession', () => {
       createSession.execute({
         email: 'teste@teste.com',
         password: '123456',
-      }),
+      })
     ).rejects.toBeInstanceOf(AppError);
   });
 
@@ -54,7 +54,7 @@ describe('CreateSession', () => {
       createSession.execute({
         email: 'teste@teste.com',
         password: '567890',
-      }),
+      })
     ).rejects.toBeInstanceOf(AppError);
   });
 });

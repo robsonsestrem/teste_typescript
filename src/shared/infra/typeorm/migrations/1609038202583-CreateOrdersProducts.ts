@@ -34,7 +34,7 @@ export class CreateOrdersProducts1609038202583 implements MigrationInterface {
             default: 'now()',
           },
         ],
-      }),
+      })
     );
   }
 

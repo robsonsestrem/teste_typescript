@@ -65,10 +65,7 @@ class ProductsRepository implements IProductsRepository {
     skip,
     take,
   }: SearchParams): Promise<IProductPaginate> {
-    const [
-      products,
-      count,
-    ] = await this.ormRepository
+    const [products, count] = await this.ormRepository
       .createQueryBuilder()
       .skip(skip)
       .take(take)
@@ -85,7 +82,7 @@ class ProductsRepository implements IProductsRepository {
   }
 
   public async findAllByIds(products: IFindProducts[]): Promise<Product[]> {
-    const productIds = products.map(product => product.id);
+    const productIds = products.map((product) => product.id);
 
     const existentProducts = await this.ormRepository.find({
       where: {
