@@ -11,7 +11,7 @@ interface SearchParams {
 class ListUserService {
   constructor(
     @inject('UsersRepository')
-    private usersRepository: IUsersRepository,
+    private usersRepository: IUsersRepository
   ) {}
 
   public async execute({ page, limit }: SearchParams): Promise<IPaginateUser> {

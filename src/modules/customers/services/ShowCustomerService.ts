@@ -8,7 +8,7 @@ import { ICustomersRepository } from '../domain/repositories/ICustomersRepositor
 class ShowCustomerService {
   constructor(
     @inject('CustomersRepository')
-    private customersRepository: ICustomersRepository,
+    private customersRepository: ICustomersRepository
   ) {}
 
   public async execute({ id }: IShowCustomer): Promise<Customer> {

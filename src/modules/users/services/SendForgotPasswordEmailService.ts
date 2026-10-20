@@ -15,7 +15,7 @@ class SendForgotPasswordEmailService {
     private usersRepository: IUsersRepository,
 
     @inject('UserTokensRepository')
-    private userTokensRepository: IUserTokensRepository,
+    private userTokensRepository: IUserTokensRepository
   ) {}
 
   public async execute({ email }: ISendForgotPasswordEmail): Promise<void> {
@@ -31,7 +31,7 @@ class SendForgotPasswordEmailService {
       __dirname,
       '..',
       'views',
-      'forgot_password.hbs',
+      'forgot_password.hbs'
     );
 
     if (mailConfig.driver === 'ses') {

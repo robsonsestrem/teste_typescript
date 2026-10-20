@@ -8,7 +8,7 @@ import { IUser } from '../domain/models/IUser';
 class ShowProfileService {
   constructor(
     @inject('UsersRepository')
-    private usersRepository: IUsersRepository,
+    private usersRepository: IUsersRepository
   ) {}
 
   public async execute({ id }: IShowUser): Promise<IUser> {

@@ -13,7 +13,7 @@ class CreateSessionsService {
     @inject('UsersRepository')
     private usersRepository: IUsersRepository,
     @inject('HashProvider')
-    private hashProvider: IHashProvider,
+    private hashProvider: IHashProvider
   ) {}
 
   public async execute({
@@ -28,7 +28,7 @@ class CreateSessionsService {
 
     const passwordConfirmed = await this.hashProvider.compareHash(
       password,
-      user.password,
+      user.password
     );
 
     if (!passwordConfirmed) {

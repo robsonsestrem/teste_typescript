@@ -4,8 +4,10 @@ import { RateLimiterRedis } from 'rate-limiter-flexible';
 import AppError from '@shared/errors/AppError';
 
 const redisClient = redis.createClient({
-  host: process.env.REDIS_HOST,
-  port: Number(process.env.REDIS_PORT),
+  socket: {
+    host: process.env.REDIS_HOST,
+    port: Number(process.env.REDIS_PORT),
+  },
   password: process.env.REDIS_PASS || undefined,
 });
 
@@ -22,7 +24,7 @@ export default async function rateLimiter(
   next: NextFunction
 ): Promise<void> {
   try {
-    await limiter.consume(request.ip);
+    await limiter.consume(request.ip ?? 'unknown');
 
     return next();
   } catch (err) {

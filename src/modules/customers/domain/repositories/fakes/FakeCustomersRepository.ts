@@ -24,7 +24,7 @@ class FakeCustomersRepository implements ICustomersRepository {
 
   public async save(customer: Customer): Promise<Customer> {
     const findIndex = this.customers.findIndex(
-      findCustomer => findCustomer.id === customer.id,
+      (findCustomer) => findCustomer.id === customer.id
     );
 
     this.customers[findIndex] = customer;
@@ -33,7 +33,7 @@ class FakeCustomersRepository implements ICustomersRepository {
   }
 
   public async remove(customer: Customer): Promise<void> {
-    this.customers = this.customers.filter(c => c.id !== customer.id);
+    this.customers = this.customers.filter((c) => c.id !== customer.id);
   }
 
   public async findAll({
@@ -51,15 +51,15 @@ class FakeCustomersRepository implements ICustomersRepository {
   }
 
   public async findByName(name: string): Promise<Customer | null> {
-    return this.customers.find(customer => customer.name === name) ?? null;
+    return this.customers.find((customer) => customer.name === name) ?? null;
   }
 
   public async findById(id: string): Promise<Customer | null> {
-    return this.customers.find(customer => customer.id === id) ?? null;
+    return this.customers.find((customer) => customer.id === id) ?? null;
   }
 
   public async findByEmail(email: string): Promise<Customer | null> {
-    return this.customers.find(customer => customer.email === email) ?? null;
+    return this.customers.find((customer) => customer.email === email) ?? null;
   }
 }
 

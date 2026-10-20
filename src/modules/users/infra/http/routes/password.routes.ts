@@ -14,7 +14,7 @@ passwordRouter.post(
       email: Joi.string().email().required(),
     },
   }),
-  forgotPasswordController.create,
+  forgotPasswordController.create
 );
 
 passwordRouter.post(
@@ -26,7 +26,7 @@ passwordRouter.post(
       password_confirmation: Joi.string().required().valid(Joi.ref('password')),
     },
   }),
-  resetPasswordController.create,
+  resetPasswordController.create
 );
 
 export default passwordRouter;
