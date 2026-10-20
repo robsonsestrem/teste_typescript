@@ -9,7 +9,7 @@ import { IUsersRepository } from '../domain/repositories/IUsersRepository';
 class UpdateProfileService {
   constructor(
     @inject('UsersRepository')
-    private usersRepository: IUsersRepository,
+    private usersRepository: IUsersRepository
   ) {}
 
   public async execute({

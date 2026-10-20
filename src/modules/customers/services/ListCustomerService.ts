@@ -11,7 +11,7 @@ interface SearchParams {
 class ListCustomerService {
   constructor(
     @inject('CustomersRepository')
-    private customersRepository: ICustomersRepository,
+    private customersRepository: ICustomersRepository
   ) {}
 
   public async execute({

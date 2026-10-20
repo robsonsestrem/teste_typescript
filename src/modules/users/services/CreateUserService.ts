@@ -11,7 +11,7 @@ class CreateUserService {
     @inject('UsersRepository')
     private usersRepository: IUsersRepository,
     @inject('HashProvider')
-    private hashProvider: IHashProvider,
+    private hashProvider: IHashProvider
   ) {}
 
   public async execute({ name, email, password }: ICreateUser): Promise<IUser> {

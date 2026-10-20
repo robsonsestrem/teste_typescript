@@ -13,7 +13,7 @@ sessionsRouter.post(
       password: Joi.string().required(),
     },
   }),
-  sessionsController.create,
+  sessionsController.create
 );
 
 export default sessionsRouter;

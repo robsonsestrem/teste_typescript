@@ -11,7 +11,7 @@ import { IUsersRepository } from '../domain/repositories/IUsersRepository';
 class UpdateUserAvatarService {
   constructor(
     @inject('UsersRepository')
-    private usersRepository: IUsersRepository,
+    private usersRepository: IUsersRepository
   ) {}
 
   public async execute({

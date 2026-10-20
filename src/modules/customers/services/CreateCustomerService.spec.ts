@@ -31,7 +31,7 @@ describe('CreateCustomer', () => {
       createCustomer.execute({
         name: 'Jorge Aluizio',
         email: 'teste@teste.com',
-      }),
+      })
     ).rejects.toBeInstanceOf(AppError);
   });
 });

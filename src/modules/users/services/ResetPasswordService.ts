@@ -13,7 +13,7 @@ class ResetPasswordService {
     private usersRepository: IUsersRepository,
 
     @inject('UserTokensRepository')
-    private userTokensRepository: IUserTokensRepository,
+    private userTokensRepository: IUserTokensRepository
   ) {}
 
   public async execute({ token, password }: IResetPassword): Promise<void> {
