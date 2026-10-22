@@ -1,5 +1,5 @@
 import { DataSource } from 'typeorm';
-
+import 'dotenv/config';
 import User from '@modules/users/infra/typeorm/entities/User';
 import UserToken from '@modules/users/infra/typeorm/entities/UserToken';
 import Customer from '@modules/customers/infra/typeorm/entities/Customer';
@@ -20,11 +20,11 @@ import { AddOrderFieldtoOrders1619889809717 } from './migrations/1619889809717-A
 
 export const dataSource = new DataSource({
   type: 'postgres',
-  host: 'db',
-  port: 5432,
-  username: 'postgres',
-  password: 'docker',
-  database: 'apivendas',
+  host: process.env.DATABASE_HOST || 'localhost',
+  port: Number(process.env.DATABASE_PORT) || 5432,
+  username: process.env.DATABASE_USER || 'postgres',
+  password: process.env.DATABASE_PASS || 'docker',
+  database: process.env.DATABASE_NAME || 'apivendas',
   entities: [User, UserToken, Customer, Order, OrdersProducts, Product],
   migrations: [
     CreateProducts1607437608841,

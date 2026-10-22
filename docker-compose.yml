@@ -14,23 +14,29 @@ services:
       - redis
 
   db:
-    build: .docker/postgres
+    image: postgres:18-alpine
     container_name: apivendas-db
     restart: always
     tty: true
     ports:
       - '5432:5432'
     volumes:
-      - .docker/dbdata:/var/lib/postgresql/data
+      - .docker/dbdata:/var/lib/postgresql
     environment:
       - POSTGRES_PASSWORD=docker
       - POSTGRES_DB=apivendas
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U postgres -d apivendas']
+      interval: 5s
+      timeout: 5s
+      retries: 10
 
   redis:
-    image: 'bitnami/redis:latest'
+    image: redis:7-alpine
     container_name: apivendas-redis
-    environment:
-      - ALLOW_EMPTY_PASSWORD=yes
+    restart: always
+    ports:
+      - '6379:6379'
 
   pgadmin:
     image: dpage/pgadmin4
