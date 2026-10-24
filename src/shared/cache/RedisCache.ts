@@ -1,35 +1,22 @@
-import Redis, { Redis as RedisClient } from 'ioredis';
-import cacheConfig from '@config/cache';
+import redisClient from './redisClient';
 
 class RedisCache {
-  private client: RedisClient;
-  private connected = false;
-
-  constructor() {
-    if (!this.connected) {
-      this.client = new Redis(cacheConfig.config.redis);
-      this.connected = true;
-    }
-  }
-
-  public async save(key: string, value: any): Promise<void> {
-    await this.client.set(key, JSON.stringify(value));
+  public async save(key: string, value: unknown): Promise<void> {
+    await redisClient.set(key, JSON.stringify(value));
   }
 
   public async recover<T>(key: string): Promise<T | null> {
-    const data = await this.client.get(key);
+    const data = await redisClient.get(key);
 
     if (!data) {
       return null;
     }
 
-    const parsedData = JSON.parse(data) as T;
-
-    return parsedData;
+    return JSON.parse(data) as T;
   }
 
   public async invalidate(key: string): Promise<void> {
-    await this.client.del(key);
+    await redisClient.del(key);
   }
 }
 

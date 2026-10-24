@@ -1,10 +1,11 @@
 {
   "name": "api-vendas",
   "version": "1.0.0",
-  "main": "index.js",
+  "private": true,
+  "main": "dist/shared/infra/http/server.js",
   "license": "MIT",
   "engines": {
-    "node": ">=20",
+    "node": "^20.17.0 || >=22.9.0",
     "npm": ">=11"
   },
   "scripts": {
@@ -14,6 +15,8 @@
     "lint": "eslint . --ext .ts",
     "lint-fix": "eslint . --ext .ts --fix",
     "typeorm": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
+    "migration:run": "npm run typeorm -- -d src/shared/infra/typeorm/index.ts migration:run",
+    "migration:revert": "npm run typeorm -- -d src/shared/infra/typeorm/index.ts migration:revert",
     "test": "jest"
   },
   "devDependencies": {
@@ -27,8 +30,7 @@
     "@types/bcryptjs": "^2.4.2",
     "@types/cors": "^2.8.8",
     "@types/express": "^4.17.9",
-    "@types/ioredis": "^5.0.0",
-    "@types/jest": "^30.0.0",
+    "@types/jest": "^26.0.24",
     "@types/jsonwebtoken": "^8.5.0",
     "@types/multer": "^1.4.5",
     "@types/node": "^22.0.0",
@@ -44,6 +46,7 @@
     "jest": "^26.6.3",
     "prettier": "^2.2.1",
     "ts-jest": "^26.5.4",
+    "ts-node": "^10.9.2",
     "ts-node-dev": "^1.0.0",
     "tsconfig-paths": "^3.9.0",
     "typescript": "4.1.2"
@@ -59,7 +62,7 @@
     "express": "^4.17.1",
     "express-async-errors": "^3.1.1",
     "handlebars": "^4.7.6",
-    "ioredis": "^6.0.0",
+    "ioredis": "^5.4.1",
     "joi": "^17.4.0",
     "jsonwebtoken": "^8.5.1",
     "mime": "^2.5.0",
