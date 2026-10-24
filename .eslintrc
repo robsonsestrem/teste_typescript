@@ -1,15 +1,24 @@
 {
   "root": true,
   "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module"
+  },
+  "env": {
+    "node": true,
+    "es2020": true
+  },
   "plugins": ["@typescript-eslint", "prettier"],
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
+    "prettier/@typescript-eslint",
     "prettier",
     "plugin:prettier/recommended"
   ],
-  "ignorePatterns": ["dist", "build", "node_modules", "coverage"],
+  "ignorePatterns": ["dist", "build", "node_modules", "coverage", "*.js"],
   "rules": {
     "no-console": "warn",
     "prettier/prettier": "error"
